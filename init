@@ -1,0 +1,33 @@
+from bs4 import BeautifulSoup
+from lxml import html
+import requests, socket, os, json, pathlib
+
+MLINK = 'https://www.securitylab.ru/vulnerability/'
+a = 'https://www.securitylab.ru'
+page = requests.get(MLINK, verify=False, proxies=proxies)
+
+soup = BeautifulSoup(page.content, "lxml")
+topics = soup.find_all("div", {"class": "article-card-details"}) #text=True
+for each in topics:
+    theme = each.find('h4', {'class': 'article-card-title'})
+    link = each.find('a', href=True)
+
+    if (a + str(link['href'])) not in sent_news: #если такой темы нет среди отправленных
+        sent_news[a + str(link['href'])] = str(theme.getText()) #дополнить словарь
+        t[a + str(link['href'])] = str(theme.getText()) #дополнить словарь
+        
+unix.nspk.ru
+
+MLINK = 'https://www.securitylab.ru/vulnerability/'
+a = 'https://www.securitylab.ru'
+page = requests.get(MLINK, verify=False, proxies=proxies)
+
+soup = BeautifulSoup(page.content, "lxml")
+topics = soup.find_all("div", {"class": "article-card-details"}) #text=True
+for each in topics:
+    theme = each.find('h4', {'class': 'article-card-title'})
+    link = each.find('a', href=True)
+
+    if (a + str(link['href'])) not in sent_news: #если такой темы нет среди отправленных
+        sent_news[a + str(link['href'])] = str(theme.getText()) #дополнить словарь
+        t[a + str(link['href'])] = str(theme.getText()) #дополнить словарь
