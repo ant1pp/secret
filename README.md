@@ -4,5 +4,5 @@ sfsdg
 
 unix.nspk.ru
 
-paasword = 2334
+password = 2334
 
